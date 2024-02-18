@@ -2,8 +2,6 @@ from os import getcwd as getcwd
 from pprint import pprint
 
 
-# Переписать на класс
-# import pprint
 def read_recipes():
     file_path = getcwd() + "/recipes.txt"
     cook_book = {}
@@ -45,18 +43,17 @@ def merging_text_files(list_file: list, name_output_file: str):
     file_path = getcwd() + "/" + name_output_file
     with open(file_path, 'w', encoding="utf-8") as file:
         for tuple_name_and_text in text_result:
-            file.write(tuple_name_and_text[0]+"\n")
-            file.write(str(len(tuple_name_and_text[1]))+"\n")
+            file.write(tuple_name_and_text[0] + "\n")
+            file.write(str(len(tuple_name_and_text[1])) + "\n")
             file.writelines(tuple_name_and_text[1])
 
 
 def main():
-    # cook_book = read_recipes()
-    # pprint(cook_book)
-    #
-    # print()
-    # shop_list = get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
-    # pprint(shop_list)
+    cook_book = read_recipes()
+    pprint(cook_book)
+    print()
+    shop_list = get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
+    pprint(shop_list)
     merging_text_files(['1.txt', '2.txt', '3.txt'], 'result_file.txt')
 
 
